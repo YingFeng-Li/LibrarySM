@@ -13,8 +13,8 @@ import java.net.URISyntaxException;
 import java.util.Map;
 
 @WebListener()
-//上下文监听器
-/*该监听器的作用是在启动tomcat的时候自动执行Configuration的config方法
+//涓婁笅鏂囩洃鍚櫒
+/*璇ョ洃鍚櫒鐨勪綔鐢ㄦ槸鍦ㄥ惎鍔╰omcat鐨勬椂鍊欒嚜鍔ㄦ墽琛孋onfiguration鐨刢onfig鏂规硶
 * */
 public class ContextConfigListener implements ServletContextListener{
     // Public constructor is required by servlet spec
@@ -25,7 +25,7 @@ public class ContextConfigListener implements ServletContextListener{
     // ServletContextListener implementation
     // -------------------------------------------------------
     public void contextInitialized(ServletContextEvent sce) {
-//        自动调用
+//        鑷姩璋冪敤
       /* This method is called when the servlet context is
          initialized(when the Web application is deployed).
          You can initialize servlet context related data here.
@@ -33,7 +33,7 @@ public class ContextConfigListener implements ServletContextListener{
         try {
             Map<String,ControllerMapping> controllerMapping=new Configuration().config();
             /*
-            服务端给网页（jsp）传数据，把数据放入某个作用域：request、session、application
+            鏈嶅姟绔粰缃戦〉锛坖sp锛変紶鏁版嵁锛屾妸鏁版嵁鏀惧叆鏌愪釜浣滅敤鍩燂細request銆乻ession銆乤pplication
              */
             sce.getServletContext().setAttribute("cn.guet.web.controller",controllerMapping);
         } catch (URISyntaxException e) {

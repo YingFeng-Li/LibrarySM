@@ -8,16 +8,16 @@ import java.lang.reflect.Method;
  *Date 2021/6/27 10:57
  *@Version 1.0
  *
- * ¿ØÖÆÆ÷ÔªÊı¾İĞÅÏ¢Àà£¬·â×°ÁË¿ØÖÆÆ÷ÀàµÄÏà¹ØĞÅÏ¢:
- * 1. ¿ØÖÆÆ÷ÀàÊµÀı
- * 2. ´¦ÀíÇëÇóµÄ·½·¨¶ÔÏó
+ * æ§åˆ¶å™¨å…ƒæ•°æ®ä¿¡æ¯ç±»ï¼Œå°è£…äº†æ§åˆ¶å™¨ç±»çš„ç›¸å…³ä¿¡æ¯:
+ * 1. æ§åˆ¶å™¨ç±»å®ä¾‹
+ * 2. å¤„ç†è¯·æ±‚çš„æ–¹æ³•å¯¹è±¡
  */
 
 public class ControllerMapping {
-    // ÒµÎñ¿ØÖÆÆ÷ÀàÊµÀı,  UserController, BookController ......
+    // ä¸šåŠ¡æ§åˆ¶å™¨ç±»å®ä¾‹,  UserController, BookController ......
     private Class<?> controllerClass;
 
-    // ÒµÎñ¿ØÖÆÆ÷ÀàÊµÀıµÄÄ¿±ê·½·¨£¬¼´±ê×¢ÁË@RequestMappingµÄ·½·¨ÊµÀı
+    // ä¸šåŠ¡æ§åˆ¶å™¨ç±»å®ä¾‹çš„ç›®æ ‡æ–¹æ³•ï¼Œå³æ ‡æ³¨äº†@RequestMappingçš„æ–¹æ³•å®ä¾‹
     private Method handleMethod;
 
     public ControllerMapping() {
@@ -47,6 +47,6 @@ public class ControllerMapping {
     @Override
     public String toString() {
         //UserController.login
-        return "¿ØÖÆÆ÷Àà: " + controllerClass.getSimpleName() + "." + handleMethod.getName();
+        return "æ§åˆ¶å™¨ç±»: " + controllerClass.getSimpleName() + "." + handleMethod.getName();
     }
 }

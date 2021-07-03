@@ -53,15 +53,18 @@ public class Configuration {
                  */
                     if (controllerClass.isAnnotationPresent(Controller.class)) {
                         System.out.println("这个类有controller注解：" + controllerClass.getSimpleName());
-                       /* Method[] methods  = Controller.class.getMethods();
-                        Annotation[] annotations = methods[0].getDeclaredAnnotations();
-                        System.out.println(annotations[0].toString());*/
-                        /*Method methods[] = MethodUtils.getMethodsWithAnnotation(controllerClass, RequestMapping.class);
+                        Method methods[] = MethodUtils.getMethodsWithAnnotation(controllerClass, RequestMapping.class);
                         for (Method method : methods) {
-                            System.out.println("method方法的名字：" + method.getName());
+                            /*
+                            获取到RequestMapping注解的值：值就是url，相当于原来的web.xml中的url-pattern中的内容
+                             */
                             RequestMapping annotation = method.getAnnotation(RequestMapping.class);
-                            System.out.println("注解的值：" + annotation.value());
-                        }*/
+                            ControllerMapping mapping=new ControllerMapping(controllerClass,method);
+                            System.out.print("控制器："+controllerClass.getSimpleName());
+                            System.out.print("\t方法："+method.getName());
+                            System.out.println("\turl：" + annotation.value());
+                            controllerMapping.put(annotation.value(),mapping);
+                        }
                     }
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
